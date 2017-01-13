@@ -1,0 +1,80 @@
+#details .scroll-content{
+	background-color: #f1f1f1;
+	padding-bottom: 60px;
+}
+#details .pic{
+	width: 100%;
+	overflow: hidden;
+}
+#details .pic-wrap{
+	width: 100%;
+}
+#details .pic img{
+	width: 100%;
+}
+#details .des .price{
+	font-size: 18px;
+    color: #f00;
+    margin-top: 10px;
+}
+#details .list span{
+	color: #666;
+}
+#details .list-box{
+	padding: 3px 5px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+    margin-left: 8px;
+    margin-bottom: 10px;
+}
+#details span.currentList{
+	border-color: #f00;
+}
+#details .size .list-box{
+	width: 30px;
+}
+	
+#details input[type='radio']{
+	width: 0;
+	height: 0;
+}
+
+#details .buy{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	background: rgba(0,0,0,.8);
+}
+#details .buy span.icon{
+	display: block;
+    font-size: 24px;
+}
+#details .buy .cart{
+	position: relative;
+}
+#details .buy .badge{
+	position: absolute;
+    top: 5px;
+    left: 20px;
+}
+#details .buy>div{
+	text-align: center;
+    color: #fff;
+}
+#details .buy .left{
+	width: 20%;
+    padding: 5px 0;
+}
+#details .buy .right{
+	width: 30%;
+    line-height: 54px;
+    font-size: 16px;
+}
+#details .buy .add-cart{
+	background-color: #ffb03f;
+    
+}
+#details .buy .buy-right{
+	background-color: #f15353;
+}
+

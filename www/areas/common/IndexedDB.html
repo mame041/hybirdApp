@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//定义浏览器兼容
+			window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+			window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+			window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+			window.IDBCursor = window.IDBCursor || window.webkitIDBCursor || window.msIDBCursor;
+            //定义数据库的基本信息
+            var dbInfo={
+            	dbName:'aptdb',
+            	dbVersion:2024,
+            	dbInstance:{}
+            };
+            //创建数据库
+            var dbContent=window.indexedDB.open(dbInfo.dbName,dbInfo.dbVersion);
+		    //判断数据库版本号是否更新了（创建和修改表结构在这里修改
+		    //如果版本号相同 此方法值执行一次
+		    dbContent.onupgradeneeded=function(e){
+		    	// 创建数据库store(表)
+				    var _db = e.target.result;
+				    var storeNames = _db.objectStoreNames;
+				
+				    if (!storeNames.contains("cart")) {
+				      // 创建一个表结构出来
+				      _db.createObjectStore("cart", {
+				        keyPath: "goodsId",//相当于关系型数据库中的主键
+				        autoIncrement: true
+				      });
+				    }
+
+		    }
+		    //打开数据库成功的回调方法
+		    dbContent.onsuccess=function(e){
+		    	 console.log(2);
+		    	// 5、增删改查操作，开启事物,每次只能做一件事情
+				    var _db = e.target.result;
+				    var trans = _db.transaction(["cart"], "readwrite")
+				    var store = trans.objectStore("cart")
+                    // 增加数据
+				      var req=store.add({
+				        goodsId:'df6',
+				        prise:12.3,
+				        name:"衣服",
+				        size:"M",
+				        age:99
+				      })
+				      // 修改数据
+				      var req=store.put({
+				        goodsId:'df6',
+				        prise:12.79,
+				        name:"衣服",
+				        size:"L",
+				        age:1000
+				      })
+				       // 删除数据
+						//    var req = store.delete("df6");
+						
+						    // 查询数据
+						//    var req = store.get("df1");
+						
+						    // 删除所有数据
+						//    var req = store.clear();
+
+
+				      
+				      req.onsuccess=function(e){
+				      	console.log('添加');
+				      }
+				      
+				       // 查询所有数据（用了游标）
+						    var cursor=store.openCursor();
+						    var data=[];
+						
+						    cursor.onsuccess=function(e){
+						      var result = e.target.result;
+						      if (result && result !== null) {
+						        data.push(result.value);
+						        // 重新执行onsuccess句柄
+						        result.continue();
+						      }
+						      console.log(data);
+						    }
+						    cursor.onerror=function(){
+						
+						    }
+    
+		    }
+		    
+		    
+		    
+		    //打开数据库失败的回调方法
+		    dbContent.onerror=function(e){
+		    	console.log(3)
+		    }
+		    
+		</script>
+	</body>
+</html>

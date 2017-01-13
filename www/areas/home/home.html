@@ -1,0 +1,83 @@
+<ion-view id="home" view-title="首页" cache-view="false">
+ 	<ion-side-menus>
+ 		<!--主要内容-->
+	    <ion-side-menu-content>
+	        <!--头部搜索栏-->
+				<header class="bar bar-header home-header">
+		    		<button class="icon ion-navicon" ng-click="toggleLeftSideMenu()"></button>
+					<form action="">
+						<input type="text" name="" id="" value="" />
+						<button class="icon ion-ios-search"></button>
+					</form>
+	
+				</header>
+	
+				<ion-content id="home-content" class="scroll-content" scroll="false">
+			        <!--轮播图-->
+					<div class="header-slide">
+						<div class="swiper-container" id="headerSlide">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide" ng-repeat="item in headerSlideData">
+									<img ng-src="{{item.src}}" />
+								</div>
+							</div>
+		               		<div class="swiper-pagination"></div>
+						</div>
+					</div>
+	                <!--导航--> 
+	                 <nav class="mt-20">
+	                 	<ul class="ui-flexbox" >
+	                 		<li ng-repeat="item in navData"><span href="javascript:;">
+	                 				<img alt="" src="{{item.src}}"/>
+	                 				<h2>{{item.title}}</h2>
+	                 			</span>
+	                 		</li>
+	                 		
+	                 	</ul>
+	                 </nav>
+	                 <div class="content">
+	                 	
+	                 </div> 
+	                 <div class="goTop item" ng-click='goTop()'>
+	                 	<i class="icon ion-arrow-up-a"></i>
+	                 </div>
+	                 
+				</ion-content>
+	     
+	    </ion-side-menu-content>
+	    <!--侧栏内容-->
+	    <ion-side-menu side="left"  is-enabled="true">
+	         <ion-content>
+	         	<header class="left-header">
+	         	 <h2>咸鱼集散中心</h2>
+	            </header>
+	           
+	            	<div class="list">
+
+						<a class="item padding-top item-icon-right" href="#">
+							Check mail
+							<i class="icon ion-ios-arrow-right"></i> 
+						</a>
+					
+						<a class="item item-icon-right" href="#">
+							Check mail
+							<i class="icon ion-ios-arrow-right"></i> 
+						</a>
+					
+						<a class="item item-icon-right" href="#">
+							Check mail
+							<i class="icon ion-ios-arrow-right"></i> 
+						</a>
+					
+						<a class="item item-icon-right" href="#">
+							Check mail
+							<i class="icon ion-ios-arrow-right"></i> 
+						</a>
+					
+					</div>
+	          
+	         </ion-content>    
+	    <ion-side-menu>
+  </ion-side-menus>
+	
+</ion-view>

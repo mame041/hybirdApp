@@ -1,0 +1,67 @@
+#category .has-header{
+	top: 0;
+}
+#category nav{
+	position: absolute;
+    top: 45px;
+    bottom: 0;
+    width: 90px;
+    overflow: hidden;
+}
+#category nav ul{
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#category nav li{
+	height: 50px;
+    line-height: 50px;
+    color: #666;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+#category nav li.nav-current{
+	background-color: #fff;
+	border-right: none;
+}
+#category nav li.nav-blur{
+	background-color: #f1f1f1;
+    
+}
+
+#category #pro{
+	position: absolute;
+    left: 90px;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+#category #pro .scroll-content{
+	overflow: hidden;
+}
+#category #pro .content-body ul{
+	flex-wrap: wrap;
+	
+}
+#category #pro .content-body li{
+	width: 33%;
+	text-align: center;
+	margin-top: 20px;
+}
+#category #pro img{
+	width: 100%;
+}
+#category #pro .pro-scroll{
+	width: 200%;
+    height: 100%;
+    overflow-y: scroll;
+}
+#category #pro .pro-scroll .content{
+	width: 50%;
+    background-color: #fff;
+        overflow: hidden;
+}

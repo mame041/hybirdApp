@@ -1,0 +1,58 @@
+<!--bug：每次一进页面就会显示遮罩层-->
+
+
+<ion-view view-title="商品列表" cache-view="false" id="goodList">
+	<!--头部搜索栏-->
+	<header class="b_bottom header">
+			   <button class="ion-ios-arrow-left" ng-click="func_goBack()"></button>
+			  <spans class="title">列表页</span>
+	</header>
+	<!--导航栏-->
+	<nav>
+		<div class="nav-all b_bottom b_right">综合</div>
+		<div class="nav-wrap">
+			<ul class="ui-flexbox">
+				<li class="b_bottom b_right">11.1</li>
+				<li class="b_bottom b_right">销量</li>
+		        <li class="b_bottom b_right">价格</li>
+		        <li class="b_bottom b_right">品牌</li>
+		        <li class="b_bottom b_right">新品</li>
+		        <li class="b_bottom">服务</li>
+			</ul>
+		</div>
+	</nav>
+	
+   <ion-content class="scroll-content">
+   	<!--下拉刷新-->
+   	 <ion-refresher
+	    pulling-text="下拉刷新..."
+	    refreshing-text="正在加载..."
+	    on-refresh="func_refreshGoodsList()">
+	  </ion-refresher>
+      <div class="pro" ng-repeat="item in obj_goodsListData">
+      	<div class="pro-wrap padding ui-flexbox">
+      		<a ng-href="#/details/{{item.productId}}">
+      			<img ng-src="{{item.src}}"/>
+      		</a>
+      		<div class="info padding-left">
+      			<span class="desc">{{item.name}}</span>
+      			<span class="price">￥{{item.price}}</span>
+      			<div class="fav padding-top">
+      				<span class="padding-right">{{item.haoping}}%好评</span>
+      				<span class="padding-left">{{item.buy}}人</span>
+      				
+      			</div>
+      		</div>
+      	</div>
+      </div>
+      <!--当没有数据时显示-->
+      <div ng-hide="pms_isMoreItemsAvailable">
+      	<span>没有数据啦啦啦啦</span>
+      </div>
+       <ion-infinite-scroll
+       	ng-if="pms_isMoreItemsAvailable"
+	    on-infinite="func_loadMoreGoodsList()"
+	    distance="1%">
+	  </ion-infinite-scroll>
+   </ion-content>
+</ion-view>

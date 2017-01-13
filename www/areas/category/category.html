@@ -1,0 +1,50 @@
+<!--bug:手机上<div id="pro">不能滑动 已解决 但是懒加载一直显示 不能刷新出数据-->
+
+
+
+<ion-view view-title="分类" cache-view="false" id="category">
+	<div class="scroll-content has-header" scroll="false">
+		<header class="bar bar-header bar-light b_bottom">
+			  <span class="title">分类页</span>
+		</header>
+	    <nav>
+	       	<ul>
+	       	   	<li ng-repeat="item in categoryData" ng-click="getCategoryDetailData(item.typeNumber);navClick($event)" ng-class="$index==0?'nav-current':'nav-blur'">{{item.name}}</li>
+	       	</ul>
+	    </nav>
+	    <div id="pro">
+	    	<ion-content lazy-scroll>
+	    		<div class="pro-scroll">
+	    			
+	    			<div class="content">
+	    				<div class="title padding">
+	    					<span >热卖品类</span>
+	    				</div>
+	    				<div class="content-body">
+	    					<ul class="ui-flexbox">
+	    						<li ng-repeat="item in categoryDetailData" ui-sref="goodsList({typeNumber:{{item.typeNumber}}})">
+	    							<img image-lazy-src="{{item.src}}" image-lazy-loader="lines"/>
+	    							<span>{{item.name}}</span>
+	    						</li>
+	    					</ul>
+	    				</div>
+	    				<div class="title padding">
+				                <span>冬季新品</span>
+				        </div>	
+				        <div class="content-body">
+	    					<ul class="ui-flexbox">
+	    						<li ng-repeat="item in categoryDetailData">
+	    							<img image-lazy-src="{{item.src}}" image-lazy-loader="lines"/>
+	    							<span>{{item.name}}</span>
+	    						</li>
+	    					</ul>
+	    				</div>
+					    				
+					</div>
+	    		</div>
+	    	</ion-content>
+	    </div>
+	</div>
+	
+    
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="购物车" cache-view="false" id="cart">
+	<ion-content class="scroll-content">
+		<!--头部-->
+		<header class="b_bottom header">
+			   <button class="ion-ios-arrow-left" ng-click="func_goBack()"></button>
+			  <spans class="title">购物车</span>
+	    </header>
+	    <div class="anquan b_bottom padding text_c">
+	    	<span>您正在安全购物环境中，请放心购物</span>
+	    </div>
+	    <div class="content padding clearfix">
+	    	<div class="pic fl">
+	    		<img src="img/cart/buy-pro1.jpg"/>
+	    	</div>
+	    	<div class="des fl">
+	    		<div class="good-id mb_10">
+	    			200067-red-s
+	    		</div>
+	    		<div class="price mb_10">
+	    			￥66
+	    		</div>
+	    		<div class="number padding-top mb_10">
+	    		 <div class="clearfix">
+		    		<span class="fl" ng-click="func_reduceNumber()">-</span>
+		    		<input class="fl" type="text" name="number"  ng-model="obj_goodsDetailInfo.number" />
+		    		<span class="fl" ng-click="func_addNumber()">+</span>	
+	    		</div>
+	    		
+	    	</div>
+	    	</div>
+	    	
+	    </div>
+	    
+	    
+	    
+	    
+	</ion-content>
+	
+</ion-view>

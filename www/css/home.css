@@ -1,0 +1,82 @@
+/**
+ * 
+ */
+
+/*头部搜索栏*/
+.home-header{
+	background: rgba(0,0,0,0);
+}
+.home-header form{
+	width: 100%;
+	padding: 0 10%;
+	
+	position: relative;
+}
+.home-header input{
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 20px;
+	padding-left: 30px;
+	background-color: transparent;
+}
+.home-header button{
+	border: none;
+    background-color: transparent;
+    position: absolute;
+    top: -5px;
+    font-size: 40px;
+}
+/*当scroll属性值为false时 设置overflow:scroll可以滚动 并能获取到scrollTop的值*/
+#home ion-content{
+  overflow:scroll;
+
+}
+
+
+
+.header-slide{
+	height: 200px;
+}
+.swiper-slide img{
+	width: 100%;
+}
+
+#home nav{
+	padding: 0 10px;
+}
+#home nav span{
+	display: block;
+	text-align: center;
+    /*width: 40px;
+    height: 40px;*/
+}
+#home nav ul{
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+#home nav li{
+	width: 25%;
+}
+#home nav img{
+	width: 40px;
+	height: 40px;
+}
+#home h2{
+	font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 10px;
+}
+#home .content{
+	height: 700px;
+}
+#home .goTop{
+	width: 40px;
+	height: 40px;
+	background-color: #ccc;
+	text-align: center;
+	position: fixed;
+	bottom: 50px;
+	right: 11px;
+	opacity: 0;
+}
